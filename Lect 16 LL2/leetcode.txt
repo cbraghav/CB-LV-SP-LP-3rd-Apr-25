@@ -1,0 +1,5 @@
+https://leetcode.com/problems/middle-of-the-linked-list/submissions/1634762478/
+https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/submissions/1634766254/
+https://leetcode.com/problems/reverse-linked-list/submissions/1634791678/
+https://leetcode.com/problems/palindrome-linked-list/submissions/1634805890/
+https://leetcode.com/problems/odd-even-linked-list/description/

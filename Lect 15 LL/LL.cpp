@@ -143,6 +143,86 @@ Node *insert_before_element_LL(Node *head, int elem, int data)
         return NULL;
     }
 }
+// TC O(1)
+Node *delete_from_begin_LL(Node *head)
+{
+    //
+    if (head == NULL)
+        return NULL;
+    Node *temp = head;
+    head = head->next;
+    delete temp;
+    return head;
+}
+
+// TC o(N)
+Node *delete_from_end_LL(Node *head)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+
+    if (head->next == NULL)
+    {
+        // / if list has only one element
+        delete head;
+        return NULL;
+    }
+
+    Node *prev = NULL;
+    Node *curr = head;
+    while (curr->next != NULL)
+    {
+        prev = curr;
+        curr = curr->next;
+    }
+
+    // prev -> 2nd last // curr -> last;
+
+    prev->next = NULL;
+    delete curr;
+    return head;
+}
+Node *delete_element_from_LL(Node *head, int ele)
+{
+    if (head == NULL)
+    {
+        return NULL;
+    }
+
+    if (head->data == ele)
+    {
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+        return head;
+    }
+
+    Node *prev = NULL;
+    Node *curr = head;
+    while (curr != NULL)
+    {
+        if (curr->data == ele)
+        {
+            break;
+        }
+        prev = curr;
+        curr = curr->next;
+    }
+
+    if (curr == NULL)
+    {
+        cout << "element not found" << endl;
+        return head;
+    }
+
+    // elem found at curr
+
+    prev->next = curr->next;
+    delete curr;
+    return head;
+}
 int main()
 {
     Node *head = new Node(1);
@@ -177,8 +257,15 @@ int main()
 
     // head = insert_after_element_LL(head, 9, 3);
 
-    head = insert_before_element_LL(head, 4, 3);
+    // head = insert_before_element_LL(head, 4, 3);
 
-    head = insert_before_element_LL(head, 1, 0);
+    // head = insert_before_element_LL(head, 1, 0);
+    // print_LL(head);
+    // head = delete_from_begin_LL(head);
+    // head = delete_from_end_LL(head);
+    // head = delete_from_end_LL(head);
+    // print_LL(head);
+
+    head = delete_element_from_LL(head, 10);
     print_LL(head);
 }
